@@ -58,7 +58,6 @@ class WeatherService {
 
     final int timezoneOffset = res.data['city']['timezone'];
 
-    // 4. Pass the offset into your ForecastItem
     return (res.data['list'] as List)
         .map((i) => ForecastItem.fromJson(i, timezoneOffset))
         .toList();
