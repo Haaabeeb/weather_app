@@ -13,7 +13,7 @@ class WeatherCard extends StatelessWidget {
     Text('${weather.temperature.toStringAsFixed(1)}°C', style: const TextStyle(fontSize: 48, color: Colors.white)),
     Text(weather.description.toUpperCase(), style: const TextStyle(color: Colors.white70)),
     const SizedBox(height: 10),
-    // Style change: Merged the 3 info tiles into one simple text string
+
     Text('Feels: ${weather.feelsLike}° | Humidity: ${weather.humidity}% | Wind: ${weather.windSpeed}m/s',
         style: const TextStyle(color: Colors.white54)),
   ]);
