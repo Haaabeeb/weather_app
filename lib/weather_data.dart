@@ -28,7 +28,7 @@ class ForecastItem {
 
   String get iconUrl => 'https://openweathermap.org/img/wn/$iconCode.png';
 
-  // 2. Calculate the exact time using 12-hour AM/PM format
+  //  Calculate the exact time using 12-hour AM/PM format
   static String _formatCityTime(int timestamp, int offset) {
     final dateTime = DateTime.fromMillisecondsSinceEpoch((timestamp + offset) * 1000, isUtc: true);
 
@@ -56,7 +56,6 @@ class WeatherService {
   Future<List<ForecastItem>> getForecast(String city, {CancelToken? token}) async {
     final res = await _dio.get('/forecast', queryParameters: {'q': city, 'cnt': 6}, cancelToken: token);
 
-    // 3. Extract the timezone offset (in seconds) from the API response
     final int timezoneOffset = res.data['city']['timezone'];
 
     // 4. Pass the offset into your ForecastItem
